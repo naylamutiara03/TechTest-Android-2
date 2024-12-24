@@ -30,7 +30,7 @@ class StudentAdapter(private val studentList: List<Student>) : RecyclerView.Adap
         // Menggunakan Glide untuk memuat gambar dari URL
         Glide.with(holder.itemView.context)
             .load(student.profilePicture) // URL gambar
-            .error(R.drawable.ic_error) // Gambar error jika gagal memuat
+            .error(R.drawable.ic_error) // Logo error jika gagal memuat
             .into(holder.profileIcon)
     }
 
