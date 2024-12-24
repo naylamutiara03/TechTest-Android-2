@@ -8,6 +8,17 @@
     tools:context=".MainActivity"
     tools:ignore="ExtraText">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="310dp"
@@ -50,7 +61,7 @@
             android:layout_height="wrap_content"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:hint="Username Anda"
+            android:hint="Masukkan Username"
             tools:ignore="HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,7 +82,7 @@
             android:id="@+id/password_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password Anda"
+            android:hint="Masukkan Password"
             android:inputType="textPassword"
             tools:ignore="HardcodedText,TextContrastCheck,VisualLintTextFieldSize" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -1,7 +1,11 @@
 package com.example.techtest_android2
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +18,10 @@ class StudentListActivity : AppCompatActivity() {
         // Mengambil referensi ke RecyclerView
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
+
+        // Referensi ke ProgressBar dan BackIcon
+        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
+        val backIcon: ImageView = findViewById(R.id.back_icon)
 
         // Sample student data
         val studentList = listOf(
@@ -33,9 +41,17 @@ class StudentListActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         // Menambahkan listener untuk ikon back
-        val backIcon: ImageView = findViewById(R.id.back_icon)
         backIcon.setOnClickListener {
-            finish() // Menutup StudentListActivity dan kembali ke MainActivity
+            // Tampilkan ProgressBar
+            progressBar.visibility = View.VISIBLE
+            backIcon.isEnabled = false // Nonaktifkan sementara tombol back
+
+            // Simulasikan proses loading sebelum kembali
+            Handler(Looper.getMainLooper()).postDelayed({
+                progressBar.visibility = View.GONE
+                backIcon.isEnabled = true
+                finish() // Menutup StudentListActivity
+            }, 2000) // Durasi simulasi loading (2 detik)
         }
     }
 }
